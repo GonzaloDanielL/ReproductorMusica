@@ -1,0 +1,197 @@
+{
+    "recientes": [
+        {
+            "id": 4,
+            "nombre": "Limits",
+            "artista": "Bad Omens",
+            "url": "/imgs/Limits.webp",
+            "song": "/songs/limits.mp3",
+            "favorito": false,
+            "listas": []
+        },
+        {
+            "id": 5,
+            "nombre": "Pompeii",
+            "artista": "Bastille",
+            "url": "/imgs/Pompeii.webp",
+            "song": "/songs/Pompeii.mp3",
+            "favorito": false,
+            "listas": []
+        },
+        {
+            "id": 6,
+            "nombre": "Everything Black",
+            "artista": "Unlike Pluto",
+            "url": "/imgs/Black.webp",
+            "song": "/songs/black.mp3",
+            "favorito": false,
+            "listas": []
+        },
+        {
+            "id": 7,
+            "nombre": "In My Remains",
+            "artista": "Linkin Park",
+            "url": "/imgs/Remains.webp",
+            "song": "/songs/remains.mp3",
+            "favorito": false,
+            "listas": []
+        },
+        {
+            "id": 8,
+            "nombre": "Infected",
+            "artista": "Starset",
+            "url": "/imgs/Infected.webp",
+            "song": "/songs/INFECTED.mp3",
+            "favorito": false,
+            "listas": []
+        }
+    ],
+    "todas": [
+        {
+            "id": 1,
+            "nombre": "Bombs Away",
+            "artista": "One Ok Rock",
+            "url": "/imgs/BombsAway.webp",
+            "song": "/songs/BombsAway.mp3",
+            "favorito": false,
+            "listas": []
+        },
+        {
+            "id": 2,
+            "nombre": "Faceless",
+            "artista": "Red",
+            "url": "/imgs/Faceless.webp",
+            "song": "/songs/Faceless.mp3",
+            "favorito": true,
+            "listas": []
+        },
+        {
+            "id": 3,
+            "nombre": "Thief",
+            "artista": "Imagine Dragons",
+            "url": "/imgs/Thief.webp",
+            "song": "/songs/thief.mp3",
+            "favorito": false,
+            "listas": []
+        },
+        {
+            "id": 4,
+            "nombre": "Limits",
+            "artista": "Bad Omens",
+            "url": "/imgs/Limits.webp",
+            "song": "/songs/limits.mp3",
+            "favorito": true,
+            "listas": []
+        },
+        {
+            "id": 5,
+            "nombre": "Pompeii",
+            "artista": "Bastille",
+            "url": "/imgs/Pompeii.webp",
+            "song": "/songs/Pompeii.mp3",
+            "favorito": true,
+            "listas": []
+        },
+        {
+            "id": 6,
+            "nombre": "Everything Black",
+            "artista": "Unlike Pluto",
+            "url": "/imgs/Black.webp",
+            "song": "/songs/black.mp3",
+            "favorito": true,
+            "listas": []
+        },
+        {
+            "id": 7,
+            "nombre": "In My Remains",
+            "artista": "Linkin Park",
+            "url": "/imgs/Remains.webp",
+            "song": "/songs/remains.mp3",
+            "favorito": false,
+            "listas": []
+        },
+        {
+            "id": 8,
+            "nombre": "Infected",
+            "artista": "Starset",
+            "url": "/imgs/Infected.webp",
+            "song": "/songs/INFECTED.mp3",
+            "favorito": false,
+            "listas": []
+        },
+        {
+            "id": 9,
+            "nombre": "When My Devil Rises",
+            "artista": "MWAM",
+            "url": "/imgs/wmdr.webp",
+            "song": "/songs/wmdr.mp3",
+            "favorito": true,
+            "listas": []
+        },
+        {
+            "id": 10,
+            "nombre": "Weak",
+            "artista": "AJR",
+            "url": "/imgs/Weak.webp",
+            "song": "/songs/Weak.mp3",
+            "favorito": true,
+            "listas": []
+        }
+    ],
+    "favoritos": [
+        {
+            "id": 2,
+            "nombre": "Faceless",
+            "artista": "Red",
+            "url": "/imgs/Faceless.webp",
+            "song": "/songs/Faceless.mp3",
+            "favorito": true,
+            "listas": []
+        },
+        {
+            "id": 4,
+            "nombre": "Limits",
+            "artista": "Bad Omens",
+            "url": "/imgs/Limits.webp",
+            "song": "/songs/limits.mp3",
+            "favorito": true,
+            "listas": []
+        },
+        {
+            "id": 5,
+            "nombre": "Pompeii",
+            "artista": "Bastille",
+            "url": "/imgs/Pompeii.webp",
+            "song": "/songs/Pompeii.mp3",
+            "favorito": true,
+            "listas": []
+        },
+        {
+            "id": 6,
+            "nombre": "Everything Black",
+            "artista": "Unlike Pluto",
+            "url": "/imgs/Black.webp",
+            "song": "/songs/black.mp3",
+            "favorito": true,
+            "listas": []
+        },
+        {
+            "id": 9,
+            "nombre": "When My Devil Rises",
+            "artista": "MWAM",
+            "url": "/imgs/wmdr.webp",
+            "song": "/songs/wmdr.mp3",
+            "favorito": true,
+            "listas": []
+        },
+        {
+            "id": 10,
+            "nombre": "Weak",
+            "artista": "AJR",
+            "url": "/imgs/Weak.webp",
+            "song": "/songs/Weak.mp3",
+            "favorito": true,
+            "listas": []
+        }
+    ]
+}
