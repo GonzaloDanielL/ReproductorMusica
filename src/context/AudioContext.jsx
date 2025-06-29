@@ -104,7 +104,6 @@ export const AudioProvider = ({ children }) => {
             audioActual.onplay = null;
         }
 
-        // Suscribe eventos al nuevo audio
         nuevoAudio.onended = () => {
             if (repetirRef.current == "una") {
                 nuevoAudio.play();
@@ -117,7 +116,6 @@ export const AudioProvider = ({ children }) => {
         setReproduciendo(true);
         setInfoActual(data);
 
-        // Se asegura de obtener la nueva duración cuando esté lista
         if (nuevoAudio.readyState >= 1) {
             setDuracion(nuevoAudio.duration);
         } else {
@@ -210,7 +208,7 @@ export const AudioProvider = ({ children }) => {
     const generarListaAleatoria = (listaOriginal, idActual) => {
         let mezclada = [...listaOriginal];
 
-        // Si hay un idActual, lo movemos al inicio y desordenamos el resto
+        // mover concion actual al inicio de la lista
         if (idActual) {
             const actual = listaOriginal.find(item => item.id === idActual);
             const resto = listaOriginal.filter(item => item.id !== idActual);
@@ -223,14 +221,14 @@ export const AudioProvider = ({ children }) => {
 
             mezclada = [actual, ...resto];
         } else {
-            // Si no hay idActual, solo desordenamos todo
+            // Si no hay cancion actual, desordenamos todo
             for (let i = mezclada.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [mezclada[i], mezclada[j]] = [mezclada[j], mezclada[i]];
             }
         }
 
-        // Guardamos para uso externo (como mostrar lista en Reproductor)
+        //para uso externo
         colaAleatoriaRef.current = mezclada;
         setCola(colaAleatoriaRef.current);
 
