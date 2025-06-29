@@ -48,8 +48,10 @@ export const AudioProvider = ({ children }) => {
             if (cola[i].id === posicion) {
                 if (cola[i].favorito === true) {
                     document.getElementById('favorito-icon').style.color = "#EEEEEE";
+                    document.getElementById('favorito-icon-2').style.color = "#EEEEEE";
                 } else {
                     document.getElementById('favorito-icon').style.color = "#868686";
+                    document.getElementById('favorito-icon-2').style.color = "#868686";
                 }
             }
         }
