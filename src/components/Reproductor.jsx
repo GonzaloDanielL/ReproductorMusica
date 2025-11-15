@@ -389,6 +389,7 @@ const Reproductor = () => {
                 </div>
 
                 <div className='reproductor-musicas' id='reproductor-musicas'>
+                    <button className='reproductor-musicas-mobile-volver' onClick={() => cerrarListaActual()}><IoCaretBack />En cola</button>
                     <h2>En cola</h2>
                     <div className='reproductor-musicas-lista'>                        {
                         todos.map((item, index) => {

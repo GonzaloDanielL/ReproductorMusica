@@ -666,6 +666,21 @@ body {
         display: flex;
       }
 
+      & .reproductor-musicas-mobile-volver {
+        display: none;
+        background-color: transparent;
+        border: none;
+        color: var(--color-secondary);
+        font-size: 1.5rem;
+        text-align: left;
+        transition: color 0.2s ease-in-out;
+        gap: 5px;
+
+        & svg {
+          height: 100%;
+        }
+      }
+
       & .reproductor-musicas-lista {
         display: flex;
         flex-direction: column;
@@ -1202,6 +1217,8 @@ body {
 
   .reproductor-contenido-expandido {
     & .reproductor-musicas {
+      flex: 0;
+      width: 60%;
       position: absolute;
       background-color: var(--fondo-secundario);
       top: 0;
@@ -1216,6 +1233,7 @@ body {
 
   .reproductor-musicas.activo {
     transform: translateX(0);
+    width: 60%;
   }
 
   .reproductor-actual-lista-desplegar {
@@ -1547,6 +1565,52 @@ body {
           & button:nth-child(4) {
             width: 40px;
             color: var(--color-secondary);
+          }
+        }
+      }
+    }
+  }
+
+  .reproductor-musicas.activo {
+    transform: translateX(0);
+    width: 100%;
+  }
+
+  .reprodutor.expandido {
+    & .reproductor-contenido-expandido {
+      & .reproductor-musicas {
+        padding: 20px;
+
+        & h2 {
+          display: none;
+        }
+
+        & .reproductor-musicas-mobile-volver{
+          display: flex;
+        }
+
+        & .reproductor-musicas-lista {
+          gap: 20px;
+
+          & .musicas-item {
+            height: 60px;
+            gap: 10px;
+            padding: 0px;
+            border-bottom: 4px solid var(--fondo-secundario);
+
+            & div {
+              & h3 {
+                font-size: 1rem;
+              }
+
+              & span {
+                font-size: .8rem;
+              }
+            }
+
+            & span {
+              font-size: 0.9rem;
+            }
           }
         }
       }
