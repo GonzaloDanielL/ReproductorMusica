@@ -3,6 +3,7 @@ import { AudioContext } from '../context/AudioContext';
 
 import { IoCaretBack } from "react-icons/io5";
 import { FaPlay } from "react-icons/fa";
+import { IoMenu } from "react-icons/io5";
 
 import disco from '/imgs/disco.webp'
 
@@ -132,6 +133,25 @@ const Reproductor = () => {
         }
     }
 
+    function desplegarListaActual() {
+        const panel = document.getElementById('reproductor-musicas');
+        const fondo = document.querySelector('.fondo-lista-musicas-reproductor-boton');
+
+        panel.classList.add("activo");
+        fondo.classList.add("activo");
+    }
+
+    function cerrarListaActual() {
+        if (window.innerWidth <= 768) {
+            const panel = document.getElementById('reproductor-musicas');
+            const fondo = document.querySelector('.fondo-lista-musicas-reproductor-boton');
+
+            panel.classList.remove("activo");
+            fondo.classList.remove("activo");
+        }
+    }
+
+
     return (
         <footer id='reprodutor' className='reprodutor'>
 
@@ -159,6 +179,14 @@ const Reproductor = () => {
                         '--progress': `${(tiempoActual / duracion) * 100}%`,
                     }}
                 />
+
+                <button className='boton-desplegar-mobile' onClick={() => {
+                    desplegarReproductor();
+                    aplicarLista();
+                }}>
+
+                </button>
+
                 <div className='reprodutor-datos'>
                     <div>
                         <img src={infoActual.url} alt="Imagen de la canción" />
@@ -244,8 +272,17 @@ const Reproductor = () => {
                     <img src={infoActual.url} alt="" />
                 </div>
 
+                <button className='fondo-lista-musicas-reproductor-boton' onClick={() => cerrarListaActual()}>
+
+                </button>
+
                 <div className='reproductor-actual'>
-                    <button className='reproductor-actual-volver' onClick={desplegarReproductor}><IoCaretBack />Volver</button>
+                    <div className='reproductor-actual-volver-contenido'>
+                        <button className='reproductor-actual-volver' onClick={desplegarReproductor}><IoCaretBack />Volver</button>
+                        <button className='reproductor-actual-lista-desplegar' onClick={() => desplegarListaActual()}>
+                            <IoMenu />
+                        </button>
+                    </div>
 
                     <div className='reproductor-actual-contenido'>
                         <div className='reproductor-actual-1'>
@@ -340,9 +377,6 @@ const Reproductor = () => {
                                     }}>
                                         <svg className='boton-aleatorio' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 472"><path fill="currentColor" d="M70 365q74 0 118-57q0-4-5-7l-19-38q-13 27-38.5 43.5T70 323H21q-8 0-14.5 6.5T0 344t6.5 14.5T21 365zM442 9q-16-14-30 0q-15 15 0 30l27 28h-83q-73 0-117 57q0 3 4 7l19 38q13-27 38.5-43.5T356 109h83l-27 28q-15 15 0 30q6 6 15 6q7 0 15-6l64-64q13-15 0-30zm0 256q-16-14-30 0q-15 15 0 30l27 28h-83q-30 0-56-16.5T260 263l-23-47l-24-47l-10-19q-18-38-54-60.5T70 67H21q-8 0-14.5 6.5T0 88t6.5 14.5T21 109h49q64 0 96 60l24 47l23 47l11 19q20 38 55.5 60.5T358 365h84l-28 28q-15 15 0 30q6 6 15 6q8 0 15-6l64-64q13-15 0-30z" /></svg>
                                     </button>
-                                    {/*                                     <button>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m-3 5h-2v5.37c0 1.27-.9 2.44-2.16 2.6a2.505 2.505 0 0 1-2.8-2.95c.2-1.1 1.18-1.95 2.3-2.02c.63-.04 1.2.16 1.66.51V6c0-.55.45-1 1-1h2c.55 0 1 .45 1 1s-.45 1-1 1M3 6c-.55 0-1 .45-1 1v13c0 1.1.9 2 2 2h13c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1-.45-1-1V7c0-.55-.45-1-1-1" /></svg>
-                                    </button> */}
                                     <button onClick={desplegarReproductor}>
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="currentColor" stroke="currentColor" strokeLinejoin="round" strokeWidth="4" d="M36 19L24 31L12 19z" /></svg>
                                     </button>
@@ -354,17 +388,19 @@ const Reproductor = () => {
 
                 </div>
 
-                <div className='reproductor-musicas'>
+                <div className='reproductor-musicas' id='reproductor-musicas'>
                     <h2>En cola</h2>
                     <div className='reproductor-musicas-lista'>                        {
                         todos.map((item, index) => {
                             return (
                                 <div className='musicas-item' key={index}>
-                                    <button onClick={() => playAudio(item.id, {
-                                        nombre: item.nombre,
-                                        artista: item.artista,
-                                        url: item.url
-                                    })}>
+                                    <button onClick={() => {
+                                        playAudio(item.id, {
+                                            nombre: item.nombre,
+                                            artista: item.artista,
+                                            url: item.url
+                                        }), cerrarListaActual()
+                                    }}>
                                         <FaPlay />
                                     </button>
                                     <img src={item.url} alt="" />

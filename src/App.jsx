@@ -3,7 +3,8 @@ import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import { FaMusic } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import { TbBrandGithubFilled } from "react-icons/tb";
-import { IoLink } from "react-icons/io5";
+import { IoLink, IoMenu } from "react-icons/io5";
+
 
 import Inicio from './pages/inicio.jsx'
 import Favoritos from './pages/favoritos.jsx'
@@ -11,20 +12,37 @@ import Albums from './pages/albums.jsx'
 import Reproductor from './components/Reproductor.jsx';
 
 import AudioLoader from './components/AudioLoader.jsx';
+import { useState, useEffect } from "react";
 
 import './App.css'
 
 function App() {
+  const [menuActivo, setMenuActivo] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 768) {
+        setMenuActivo(false);
+      }
+    }
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const location = useLocation();
 
   return (
     <>
       <AudioLoader />
+      <div className={`fondo-boton ${menuActivo ? "activo" : ""}`}
+        onClick={() => setMenuActivo(false)}>
+      </div>
 
-      <nav className='navegacion'>
+      <nav className={`navegacion ${menuActivo ? "activo" : ""}`} id='contenido-navegacion' >
         <h1><FaMusic /> <span>Música</span></h1>
         <div className='navegacion-link'>
-          <Link to={'/inicio'} className={location.pathname === '/inicio' ? 'link-acivado' : ''}>
+          <Link to={'/inicio'} className={location.pathname === '/inicio' ? 'link-acivado' : location.pathname === '/' ? 'link-acivado' : ''}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M17 3.34A10 10 0 1 1 2 12l.005-.324A10 10 0 0 1 17 3.34M17 11a1 1 0 0 0-1 1a4 4 0 0 1-4 4a1 1 0 0 0 0 2a6 6 0 0 0 6-6a1 1 0 0 0-1-1m-5-1a2 2 0 0 0-1.995 1.85L10 12a2 2 0 1 0 2-2m0-4a6 6 0 0 0-6 6a1 1 0 0 0 2 0a4 4 0 0 1 4-4a1 1 0 0 0 0-2" /></svg>
             Música</Link>
 
@@ -45,12 +63,19 @@ function App() {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m-3 5h-2v5.37c0 1.27-.9 2.44-2.16 2.6a2.505 2.505 0 0 1-2.8-2.95c.2-1.1 1.18-1.95 2.3-2.02c.63-.04 1.2.16 1.66.51V6c0-.55.45-1 1-1h2c.55 0 1 .45 1 1s-.45 1-1 1M3 6c-.55 0-1 .45-1 1v13c0 1.1.9 2 2 2h13c.55 0 1-.45 1-1s-.45-1-1-1H5c-.55 0-1-.45-1-1V7c0-.55-.45-1-1-1" /></svg>
             Lista1</Link>
         </div>
+        <div className='contenido-busqueda-links-mobile'>
+          <a href="https://github.com/GonzaloDanielL" target='_blank'><TbBrandGithubFilled /></a>
+          <a href="https://chalo-portafolio.vercel.app/" target='_blank'><IoLink /></a>
+        </div>
       </nav>
 
       <main className='contenido'>
 
         <div className='contenido-busqueda'>
           <div className='contenido-busqueda-input'>
+            <button className='boton-desplegar-menu' onClick={() => setMenuActivo(true)}>
+              <IoMenu />
+            </button>
             <input type="text" placeholder='Buscar canciones...' />
             <button><FaSearch /></button>
           </div>
