@@ -7,7 +7,13 @@ import { FaPlay } from "react-icons/fa";
 
 const Favoritos = () => {
     const todos = datos.favoritos
-    const { playAudio, setLista } = useContext(AudioContext);
+    const { playAudio, setLista, audioRefs } = useContext(AudioContext);
+
+    const formatearTiempo = (segundos) => {
+        const min = Math.floor(segundos / 60);
+        const seg = Math.floor(segundos % 60);
+        return `${min}:${seg < 10 ? '0' + seg : seg}`;
+    };
 
     return (
         <section className='contenido-seccion'>
@@ -22,7 +28,7 @@ const Favoritos = () => {
                                         <img src={item.url} alt="" />
                                         <button
                                             onClick={() => {
-                                                setLista("favoritos");
+                                                setLista("todas");
                                                 setTimeout(() => {
                                                     playAudio(item.id, {
                                                         nombre: item.nombre,
@@ -34,11 +40,19 @@ const Favoritos = () => {
                                             <FaPlay />
                                         </button>
                                     </div>
-                                    <h3>{item.nombre}</h3>
-                                    <span>{item.artista}</span>
+                                    <div>
+                                        <h3>{item.nombre}</h3>
+                                        <span>{item.artista}</span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            {audioRefs.current[item.id]?.duration
+                                                ? formatearTiempo(audioRefs.current[item.id].duration)
+                                                : '00:00'}
+                                        </span>
+                                    </div>
                                 </div>
                             )
-
                         })
                     }
                 </div>

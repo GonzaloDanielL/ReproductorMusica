@@ -18,7 +18,6 @@ import './App.css'
 
 function App() {
   const [menuActivo, setMenuActivo] = useState(false);
-
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth > 768) {

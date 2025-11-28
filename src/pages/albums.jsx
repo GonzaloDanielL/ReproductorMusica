@@ -7,7 +7,13 @@ import { FaPlay } from "react-icons/fa";
 
 const Albums = () => {
     const todos = datos.todas
-    const { playAudio, setLista } = useContext(AudioContext);
+    const { playAudio, setLista, audioRefs } = useContext(AudioContext);
+
+    const formatearTiempo = (segundos) => {
+        const min = Math.floor(segundos / 60);
+        const seg = Math.floor(segundos % 60);
+        return `${min}:${seg < 10 ? '0' + seg : seg}`;
+    };
 
     return (
         <section className='contenido-seccion'>
@@ -34,8 +40,17 @@ const Albums = () => {
                                             <FaPlay />
                                         </button>
                                     </div>
-                                    <h3>{item.nombre}</h3>
-                                    <span>{item.artista}</span>
+                                    <div>
+                                        <h3>{item.nombre}</h3>
+                                        <span>{item.artista}</span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            {audioRefs.current[item.id]?.duration
+                                                ? formatearTiempo(audioRefs.current[item.id].duration)
+                                                : '00:00'}
+                                        </span>
+                                    </div>
                                 </div>
                             )
                         })

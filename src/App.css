@@ -11,6 +11,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 #root {
@@ -20,6 +21,7 @@ body {
   flex-direction: row;
   background-color: #181C22;
   position: relative;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /*######################## navegacion ########################*/
@@ -115,7 +117,6 @@ body {
   background-color: var(--fondo-secundario);
   padding: 40px;
   padding-top: 40px;
-  padding-bottom: 0px;
   align-items: center;
 }
 
@@ -1260,17 +1261,24 @@ body {
   .contenido {
     padding: 20px;
     gap: 25px;
+/*     padding-bottom: 140px; */
   }
 
   .reprodutor {
-    height: 70px;
+    height: 140px;
+      bottom: -150px;
 
     & .reprodutor-contenido {
       padding-left: 20px;
       padding-right: 20px;
+      align-items: start;
     }
 
     & .reprodutor-datos {
+      height: 100%;
+      align-items: start;
+      padding-top: 20px;
+
       & div {
         & img {
           width: 40px;
@@ -1292,6 +1300,9 @@ body {
 
     & .reprodutor-control {
       gap: 25px;
+      height: 100%;
+      align-items: start;
+      padding-top: 30px;
 
       & button {
         width: 15px;
@@ -1308,7 +1319,7 @@ body {
   }
 
   .contenido-seccion {
-    padding-bottom: 20px;
+    padding-bottom: 150px;
   }
 
   .contenido-seccion-lista {
@@ -1374,10 +1385,10 @@ body {
     }
   }
 
-
   .reprodutor.expandido {
     & .reproductor-contenido-expandido {
       padding: 20px;
+      padding-bottom: 70px;
       gap: 60px;
 
       & .fondo-reproduccion {
@@ -1394,107 +1405,6 @@ body {
           left: -30%;
         }
       }
-
-      /*       & .reproductor-musicas {
-        flex: 50%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        background-color: red;
-
-        & h2 {
-          font-size: 1.5rem;
-          color: var(--color-secondary);
-          font-weight: 400;
-          text-align: left;
-          display: flex;
-        }
-
-        & .reproductor-musicas-lista {
-          display: flex;
-          flex-direction: column;
-          overflow: auto;
-
-          & .musicas-item {
-            display: flex;
-            flex-direction: row;
-            height: 100px;
-            gap: 10px;
-            position: relative;
-            padding: 20px;
-            border-bottom: 4px solid var(--fondo-secundario);
-
-            & button {
-              position: absolute;
-              top: 0;
-              right: 0;
-              width: 100%;
-              height: 100%;
-              background: #181C22;
-              background: linear-gradient(90deg, rgba(24, 28, 34, 0.76) 0%, rgba(24, 28, 34, 0) 51%, rgba(24, 28, 34, 0) 100%);
-              color: var(--color-secondary);
-              border: none;
-              display: flex;
-              align-items: center;
-              opacity: 0;
-              cursor: pointer;
-              transition: all 0.2s ease-in-out;
-
-              & svg {
-                position: absolute;
-                height: 35%;
-                left: 40px;
-              }
-
-            }
-
-            & button:hover {
-              opacity: 1;
-            }
-
-            & img {
-              border-radius: 10px;
-              height: 100%;
-              object-fit: cover;
-            }
-
-            & div {
-              display: flex;
-              flex-direction: column;
-              gap: 5px;
-              flex-grow: 1;
-              justify-content: center;
-
-              & h3 {
-                font-size: 1.1rem;
-                color: var(--color-secondary);
-                font-weight: 400;
-                text-align: left;
-                width: 100%;
-              }
-
-              & span {
-                font-size: 1rem;
-                color: var(--color-primary);
-                font-weight: 400;
-                text-align: left;
-                width: 100%;
-              }
-            }
-
-            & span {
-              font-size: 1rem;
-              color: var(--gris-2);
-              display: flex;
-              align-items: center;
-            }
-          }
-        }
-
-        & .reproductor-musicas-lista::-webkit-scrollbar {
-          display: none;
-        }
-      } */
     }
   }
 
@@ -1585,7 +1495,7 @@ body {
           display: none;
         }
 
-        & .reproductor-musicas-mobile-volver{
+        & .reproductor-musicas-mobile-volver {
           display: flex;
         }
 
